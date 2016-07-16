@@ -12,6 +12,8 @@ var connection = mysql.createConnection({
 });
 
 _.forEach(books, function (book) {
+    _.remove(book.author,function(n,index){return index > 2});
+
     var post = {
         'title': book.title,
         'author': book.author.join(','),
